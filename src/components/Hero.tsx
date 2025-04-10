@@ -44,9 +44,9 @@ const Hero = () => {
       
       {/* Contenido principal */}
       <div className="container-custom relative z-20 px-4 md:px-0">
-        {/* Palabras clave animadas */}
+        {/* Palabras clave animadas - Ahora más abajo en la pantalla */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mt-16 md:mt-20"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
@@ -58,11 +58,11 @@ const Hero = () => {
               variants={textVariants}
               className="relative inline-block mx-4"
             >
-              <span className="text-4xl md:text-7xl lg:text-8xl font-extrabold text-ochocincoblanco tracking-tighter">
+              <span className="text-4xl md:text-7xl lg:text-8xl font-extrabold text-ochocincoamarillo tracking-tighter">
                 {word}
               </span>
               {index < 3 && (
-                <span className="hidden md:inline-block mx-4 text-5xl text-ochocincoamarillo">•</span>
+                <span className="hidden md:inline-block mx-4 text-5xl text-ochocincoblanco">•</span>
               )}
             </motion.div>
           ))}
@@ -70,7 +70,7 @@ const Hero = () => {
         
         {/* Contenido descriptivo y CTA */}
         <motion.div 
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl mx-auto text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.8 }}
