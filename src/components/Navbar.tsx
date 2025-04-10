@@ -20,24 +20,24 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-ochocinconegro">OCHO<span className="text-ochocincoamarillo">&</span>CINCO</span>
+            <span className={`text-2xl font-bold ${scrolled ? "text-ochocinconegro" : "text-ochocincoblanco"}`}>OCHO<span className="text-ochocincoamarillo">&</span>CINCO</span>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            <NavLink to="/">Inicio</NavLink>
-            <NavLink to="/sobre-nosotros">Sobre Nosotros</NavLink>
-            <NavLink to="/servicios">Servicios</NavLink>
-            <NavLink to="/proyectos">Proyectos</NavLink>
-            <NavLink to="/testimonios">Testimonios</NavLink>
-            <NavLink to="/contacto">Contacto</NavLink>
+            <NavLink to="/" scrolled={scrolled}>Inicio</NavLink>
+            <NavLink to="/sobre-nosotros" scrolled={scrolled}>Sobre Nosotros</NavLink>
+            <NavLink to="/servicios" scrolled={scrolled}>Servicios</NavLink>
+            <NavLink to="/proyectos" scrolled={scrolled}>Proyectos</NavLink>
+            <NavLink to="/testimonios" scrolled={scrolled}>Testimonios</NavLink>
+            <NavLink to="/contacto" scrolled={scrolled}>Contacto</NavLink>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-ochocinconegro focus:outline-none"
+              className={`focus:outline-none ${scrolled ? "text-ochocinconegro" : "text-ochocincoblanco"}`}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -63,8 +63,8 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
-  <Link to={to} className="text-ochocinconegro hover:text-ochocincoamarillo font-medium transition-colors">
+const NavLink = ({ to, children, scrolled }: { to: string; children: React.ReactNode; scrolled: boolean }) => (
+  <Link to={to} className={`font-medium transition-colors ${scrolled ? "text-ochocinconegro hover:text-ochocincoamarillo" : "text-ochocincoblanco hover:text-ochocincoamarillo"}`}>
     {children}
   </Link>
 );
